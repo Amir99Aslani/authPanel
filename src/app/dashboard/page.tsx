@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import styles from "./Dashboard.module.scss";
 
 interface User {
@@ -48,15 +48,37 @@ export default function Page(props) {
                 <h2 className={styles.name}>
                     {user.name.first} {user.name.last}
                 </h2>
-                <p className={styles.info}><strong>Email:</strong> {user.email}</p>
-                <p className={styles.info}><strong>Username:</strong> {user.login.username}</p>
-                <p className={styles.info}><strong>Phone:</strong> {user.phone}</p>
-                <p className={styles.info}><strong>Cell:</strong> {user.cell}</p>
-                <p className={styles.info}>
-                    <strong>Location:</strong> {user.location.city}, {user.location.state}, {user.location.country}
-                </p>
-                <p className={styles.info}><strong>Age:</strong> {user.dob.age}</p>
-                <p className={styles.info}><strong>Nationality:</strong> {user.nat}</p>
+                <div className={styles.infoContainer}>
+                    <p className={styles.info}>
+                        <span className={styles.title}>Email:</span>
+                        <span className={styles.value}>{user.email}</span>
+                    </p>
+                    <p className={styles.info}>
+                        <span className={styles.title}>Username:</span>
+                        <span className={styles.value}>{user.login.username}</span>
+                    </p>
+                    <p className={styles.info}>
+                        <span className={styles.title}>Phone:</span>
+                        <span className={styles.value}>{user.phone}</span>
+                    </p>
+                    <p className={styles.info}>
+                        <span className={styles.title}>Cell:</span>
+                        <span className={styles.value}>{user.cell}</span>
+                    </p>
+                    <p className={styles.info}>
+                        <span className={styles.title}>Location:</span>
+                        <span className={styles.value}>{user.location.city}, {user.location.state}, {user.location.country}</span>
+                    </p>
+                    <p className={styles.info}>
+                        <span className={styles.title}>Age:</span>
+                        <span className={styles.value}>{user.dob.age}</span>
+                    </p>
+                    <p className={styles.info}>
+                        <span className={styles.title}>Nationality:</span>
+                        <span className={styles.value}>{user.nat}</span>
+                    </p>
+                </div>
+
             </div>
         </div>
     );

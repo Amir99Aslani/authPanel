@@ -10,45 +10,87 @@ $olive-green: #31352e;
   justify-content: center;
   align-items: center;
   padding: 3rem;
-  background-color: $misty-blue;
-  min-height: 100vh;
+  background-color: $sage-green;
+  height: 100%;
 
   .card {
     background-color: $nude;
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    max-width: 400px;
-    width: 100%;
+    width: 400px;
     text-align: center;
     color: $olive-green;
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid $sage-green;
+    }
+
+    .name {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      color: $olive-green;
+    }
+
+    .infoContainer{
+      width: 100%;
+
+      .info {
+        margin:.75rem .25rem 0 .25rem;
+        font-size: 1rem;
+        display: flex;
+        justify-content: space-around;
+
+        .title{
+          font-weight: 600;
+          width: 30%;
+          text-align: left;
+        }
+        .value{
+          text-align: left;
+          width: 70%;
+        }
+
+      }
+    }
+
+    .loading {
+      color: $olive-green;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
   }
 
-  .avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    border: 3px solid $sage-green;
-  }
 
-  .name {
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-    color: $olive-green;
-  }
+}
 
-  .info {
-    margin: 0.25rem 0;
-    font-size: 1rem;
-  }
 
-  .loading {
-    color: $olive-green;
-    font-size: 1.2rem;
-    text-align: center;
-    margin-top: 2rem;
-  }
+@media screen and (max-width: 500px) {
+  .container {
+    padding: 1rem;
 
+    .card {
+      width: 100%;
+
+
+      .infoContainer {
+        width: 100%;
+
+        .info {
+          margin:.75rem .25rem 0 .25rem;
+          font-size: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          }
+
+      }
+    }
+  }
 }
