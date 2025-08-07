@@ -1,0 +1,54 @@
+
+$nude: #bca88e;
+$misty-blue: #e3e8e9;
+$sage-green: #9da993;
+$rosewater: #e4b4b4;
+$olive-green: #31352e;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  background-color: $misty-blue;
+  min-height: 100vh;
+
+  .card {
+    background-color: $nude;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    color: $olive-green;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid $sage-green;
+  }
+
+  .name {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: $olive-green;
+  }
+
+  .info {
+    margin: 0.25rem 0;
+    font-size: 1rem;
+  }
+
+  .loading {
+    color: $olive-green;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+}
