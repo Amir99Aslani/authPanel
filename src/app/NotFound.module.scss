@@ -1,0 +1,21 @@
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e3e8e9;
+  color: #31352e;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    margin-top: 1rem;
+    text-decoration: underline;
+    color: #bca88e; // Nude
+  }
+}

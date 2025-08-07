@@ -1,0 +1,37 @@
+$primary: #BCA88E;
+$error: crimson;
+$disabled: #a0a0a0;
+$grayBorder: #9DA993;
+$labelColor : #31352E;
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: $labelColor;
+}
+
+.input {
+  padding: 0.6rem 1rem;
+  border: 1px solid $grayBorder;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: $primary;
+  }
+}
+
+.error {
+  color: $error;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
