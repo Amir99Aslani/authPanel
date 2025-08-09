@@ -2,7 +2,7 @@
 
 import {useEffect, useState} from "react";
 import styles from "./Dashboard.module.scss";
-import Button from "@/components/UI/Button";
+import Button from "@/components/ui/Button";
 import {toast} from "sonner";
 import {useRouter} from "next/navigation";
 
@@ -19,7 +19,7 @@ interface User {
 }
 
 
-export default function Page(props) {
+export default function Page() {
 
     const router = useRouter();
 
@@ -35,9 +35,12 @@ export default function Page(props) {
                     console.error("Failed to parse user from localStorage", e);
                 }
             }
-        }
-        if (!(JSON.parse(localStorage.getItem("user"))).picture.large) {
-            localStorage.removeItem("user");
+            if (storedUser) {
+                const user = JSON.parse(storedUser);
+                if (!user.picture.large) {
+                    localStorage.removeItem("user");
+                }
+            }
         }
     }, []);
 

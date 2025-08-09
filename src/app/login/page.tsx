@@ -15,7 +15,7 @@ export default function LoginPage() {
     const formik = useFormik({
         initialValues: {phone: ''},
         validationSchema: loginSchema,
-        onSubmit: async (values) => {
+        onSubmit: async (_values) => {
             try {
                 const res = await fetch('https://randomuser.me/api/?results=1&nat=us');
 

@@ -373,7 +373,7 @@ z"
         );
     };
 
-    const [user, setUser] = useState<string>(null);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         const hasVisited: boolean = sessionStorage.getItem("visited") == "true";
