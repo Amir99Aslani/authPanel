@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "formik": "^2.4.6",
+    "install": "^0.13.0",
     "next": "15.4.6",
+    "npm": "^11.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sass": "^1.90.0",
+    "sonner": "^2.0.7",
     "yup": "^1.7.0"
   },
   "devDependencies": {

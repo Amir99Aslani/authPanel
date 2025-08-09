@@ -1,31 +1,36 @@
 'use client';
 
-import { useFormik } from 'formik';
-import { loginSchema } from '@/lib/validation';
+import {useFormik} from 'formik';
+import {loginSchema} from '@/lib/validation';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import styles from './Login.module.scss';
-import { useRouter } from 'next/navigation';
+import {useRouter} from 'next/navigation';
 import {useEffect} from "react";
+import {toast} from "sonner";
 
 export default function LoginPage() {
     const router = useRouter();
 
     const formik = useFormik({
-        initialValues: { phone: '' },
+        initialValues: {phone: ''},
         validationSchema: loginSchema,
         onSubmit: async (values) => {
             try {
                 const res = await fetch('https://randomuser.me/api/?results=1&nat=us');
-                const data = await res.json();
-                const user = data?.results[0];
-                console.log(user)
 
-                localStorage.setItem('user', JSON.stringify(user));
-                router.push('/dashboard');
+                if (res.status == 200) {
+                    const data = await res.json();
+                    const user = data?.results[0];
+                    toast.success('Login successfully !')
+                    localStorage.setItem('user', JSON.stringify(user));
+                    router.push('/dashboard');
+                }
+
 
             } catch (err) {
                 console.error('login failed:', err);
+                toast.error('Login failed. Please try again.');
             }
         },
     });
@@ -50,7 +55,7 @@ export default function LoginPage() {
                     onBlur={formik.handleBlur}
                     error={formik.touched.phone ? formik.errors.phone : undefined}
                 />
-                <Button text="Login" type="submit" />
+                <Button text="Login" type="submit" loading={formik.isSubmitting} />
             </form>
         </div>
     );

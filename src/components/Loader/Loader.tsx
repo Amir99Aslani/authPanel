@@ -399,8 +399,6 @@ z"
 
     }, []);
 
-    console.log(animationTiming);
-
     return (
         <>
             {
@@ -411,7 +409,7 @@ z"
                         <div className="wrapper">
                             <h2>Welcome to our the mini app </h2>
                             <div className="linkContainer">
-                                <Link href="/login">
+                                <Link href={user ? "/dashboard" : "/login"}>
                                     {user ? "Dashboard" : "Login"}
                                 </Link>
                             </div>

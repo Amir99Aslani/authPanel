@@ -2,6 +2,9 @@
 
 import {useEffect, useState} from "react";
 import styles from "./Dashboard.module.scss";
+import Button from "@/components/UI/Button";
+import {toast} from "sonner";
+import {useRouter} from "next/navigation";
 
 interface User {
     name: { first: string; last: string };
@@ -18,6 +21,8 @@ interface User {
 
 export default function Page(props) {
 
+    const router = useRouter();
+
     const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
@@ -30,6 +35,9 @@ export default function Page(props) {
                     console.error("Failed to parse user from localStorage", e);
                 }
             }
+        }
+        if (!(JSON.parse(localStorage.getItem("user"))).picture.large) {
+            localStorage.removeItem("user");
         }
     }, []);
 
@@ -67,7 +75,8 @@ export default function Page(props) {
                     </p>
                     <p className={styles.info}>
                         <span className={styles.title}>Location:</span>
-                        <span className={styles.value}>{user.location.city}, {user.location.state}, {user.location.country}</span>
+                        <span
+                            className={styles.value}>{user.location.city}, {user.location.state}, {user.location.country}</span>
                     </p>
                     <p className={styles.info}>
                         <span className={styles.title}>Age:</span>
@@ -78,7 +87,15 @@ export default function Page(props) {
                         <span className={styles.value}>{user.nat}</span>
                     </p>
                 </div>
-
+                <Button text="Logout" type="button"
+                        onClick={() => {
+                            toast.success('Logout successfully !')
+                            setTimeout(() => {
+                                router.push('/');
+                                localStorage.removeItem("user");
+                            }, 2000);
+                        }}
+                />
             </div>
         </div>
     );
